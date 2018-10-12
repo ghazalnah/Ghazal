@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,9 +18,10 @@
         </activity>
         <activity android:name=".AlertDialogActivity" />
         <activity android:name=".SignUp" />
-        <activity android:name=".ListActivity" />
+        <activity android:name=".CustomActivity" />
         <activity android:name=".ExpensesActivity" />
-        <activity android:name=".NewExpenseActivity"></activity>
+        <activity android:name=".NewExpenseActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

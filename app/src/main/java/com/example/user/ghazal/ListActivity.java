@@ -12,29 +12,29 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    ListView lvCountries;
-    ArrayAdapter<String> arrayAdapter;
-    ArrayList<String> arrayList = new ArrayList<>();
+    ListView lvItems;
+    CustomAdapter adapter;
+    ArrayList<Item> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        lvCountries = (ListView) findViewById(R.id.LvCountries);
+        lvItems = findViewById(R.id.LvCountries);
 
-        arrayList.add("Germany");
-        arrayList.add("France");
-        arrayList.add("Italy");
+        arrayList.add(new Item(R.drawable.android,"First"));
+        arrayList.add(new Item(R.drawable.androidd,"Second"));
+        arrayList.add(new Item(R.drawable.androidd,"Third"));
+        arrayList.add(new Item(R.drawable.android,"Fourth"));
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
-        lvCountries.setAdapter(arrayAdapter);
+        adapter = new CustomAdapter(this, R.layout.custom_row, arrayList);
+        lvItems.setAdapter(adapter);
+        lvItems.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String selectedItem = arrayList.get(position);
-        if(selectedItem.equals("Germany"))
         if(position==0){
 
 
