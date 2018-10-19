@@ -14,21 +14,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText username,password;
     Button logIn,signUp;
 
+    //private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         username=(EditText) findViewById(R.id.username);
+        username=(EditText) findViewById(R.id.username);
         password=(EditText) findViewById(R.id.password);
 
-        logIn=findViewById(R.id.LogIn);
+        logIn= (Button) findViewById(R.id.LogIn);
         logIn.setOnClickListener( this);
 
-        signUp= findViewById(R.id.SignUp);
+        signUp= (Button) findViewById(R.id.SignUp);
         signUp.setOnClickListener(this);
 
+  //      mAuth = FirebaseAuth.getInstance();
+
     }
+
+/*    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }*/
     @Override
     public void onClick(View view){
         switch (view.getId()){

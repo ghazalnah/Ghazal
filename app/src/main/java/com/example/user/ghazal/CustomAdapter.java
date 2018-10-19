@@ -34,7 +34,7 @@ public class CustomAdapter extends ArrayAdapter<Item> {
 
         if(p != null) {
             TextView tvName = (TextView) v.findViewById(R.id.tvName);
-            tvName.setText(p.getImage());
+            tvName.setText(p.getName());
 
             ImageView imageView=v.findViewById(R.id.imageView);
             imageView.setImageResource(p.getImage());

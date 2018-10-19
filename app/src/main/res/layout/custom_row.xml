@@ -6,19 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/androiddd" />
-
     <TextView
         android:id="@+id/tvName"
         android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:text="TextView"
+        android:text="Travel"
         android:textSize="30dp" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/car" />
+
+
 
 </LinearLayout>

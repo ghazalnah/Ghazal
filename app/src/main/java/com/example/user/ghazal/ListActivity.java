@@ -21,7 +21,7 @@ public class ListActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        lvItems = findViewById(R.id.LvCountries);
+        lvItems = (ListView) findViewById(R.id.LvCountries);
 
         arrayList.add(new Item(R.drawable.android,"First"));
         arrayList.add(new Item(R.drawable.androidd,"Second"));
