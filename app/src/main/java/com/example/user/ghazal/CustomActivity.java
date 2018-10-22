@@ -23,7 +23,10 @@ public class CustomActivity extends AppCompatActivity implements AdapterView.OnI
 
         itemArrayList = new ArrayList<>();
 
-        itemArrayList.add(new Item("task1", "school", R.drawable.android));
+        itemArrayList.add(new Item("task1", "Work", R.drawable.work));
+        itemArrayList.add(new Item("task1", "Home Expenses", R.drawable.home));
+        itemArrayList.add(new Item("task1", "Traveling", R.drawable.car));
+        itemArrayList.add(new Item("task1", "University Expenses", R.drawable.uni));
 
         customAdapter = new CustomAdapter(this, R.layout.custom_row,itemArrayList);
         listView.setAdapter(customAdapter);
