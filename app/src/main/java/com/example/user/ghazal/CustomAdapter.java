@@ -32,14 +32,14 @@ public class CustomAdapter extends ArrayAdapter<Item> {
 
         Item p = getItem(position);
 
-      //  if(p != null) {
+        //if(p != null) {
             TextView tvName = (TextView) v.findViewById(R.id.tvName);
             tvName.setText(p.getName());
 
 
             ImageView imageView=v.findViewById(R.id.imageView);
             imageView.setImageResource(p.getImage());
- //       }
+       // }
         return v;
     }
 }
