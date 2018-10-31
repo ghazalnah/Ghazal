@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomActivity">
+        <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlertDialogActivity" />
-        <activity android:name=".SignUp" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".NewExpenseActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ExpensesActivity" />
+        <activity android:name=".Camera"></activity>
     </application>
 
 </manifest>

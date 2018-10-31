@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "434601247946",
-    "firebase_url": "https://ghazal-d554d.firebaseio.com",
-    "project_id": "ghazal-d554d",
-    "storage_bucket": "ghazal-d554d.appspot.com"
+    "project_number": "519510855206",
+    "firebase_url": "https://ghazal-f7507.firebaseio.com",
+    "project_id": "ghazal-f7507",
+    "storage_bucket": "ghazal-f7507.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434601247946:android:a8f4ad34d2756c53",
+        "mobilesdk_app_id": "1:519510855206:android:a8f4ad34d2756c53",
         "android_client_info": {
           "package_name": "com.example.user.ghazal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "434601247946-reipqn9urnnhmdsb9et8ifrp42imlm9i.apps.googleusercontent.com",
+          "client_id": "519510855206-l8fglinchjejcttqsjhbci5hoe5bc1ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.ghazal",
+            "certificate_hash": "090b37ae54543232e42d4a8a51221c2a9a993f6a"
+          }
+        },
+        {
+          "client_id": "519510855206-ibe8n764sp8mr944tp1fd34vipvti9lc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDlZsz5ZvvbsedKnm98laP-xQ5i97UKnMo"
+          "current_key": "AIzaSyDbDHODxlCZMSKiyZorFvxzkT7atSvcHkU"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519510855206-ibe8n764sp8mr944tp1fd34vipvti9lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
