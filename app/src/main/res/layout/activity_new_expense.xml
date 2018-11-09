@@ -7,4 +7,40 @@
     android:orientation="vertical"
     tools:context=".NewExpenseActivity">
 
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/etCategoty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Category"
+        android:inputType="textPersonName"
+        android:text="Category" />
+
+    <EditText
+        android:id="@+id/etExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Expense"
+        android:inputType="number"
+        android:text="Expense" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="71dp" />
+
+    <Button
+        android:id="@+id/btDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
