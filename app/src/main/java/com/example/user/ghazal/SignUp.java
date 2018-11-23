@@ -34,6 +34,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        mAuth = FirebaseAuth.getInstance();
+
         supUser = (EditText) findViewById(R.id.SupUser);
         supEmail = (EditText) findViewById(R.id.SupEmail);
         supPhone = (EditText) findViewById(R.id.Suphone);
@@ -42,7 +44,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         signUp2.setOnClickListener(this);
     }
 
-    public void createAccount(String s, String pass, String email, String password){
+    public void createAccount(String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -51,22 +53,28 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i =new Intent(SignUp.this,ExpensesActivity.class);
+                            Intent i = new Intent(SignUp.this, ExpensesActivity.class);
                             startActivity(i);
-                            //  updateUI(user);
+                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignUp.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            //    updateUI(null);
+                            //updateUI(null);
                         }
 
                         // ...
                     }
                 });
     }
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+       // updateUI(currentUser);
+    }
     @Override
     public void onClick(View v) {
         String email = supEmail.getText().toString();
@@ -77,7 +85,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         if(email.equals("") || pass.equals("") || phone.equals("") || username.equals("")){
             Toast.makeText(this, "Empty fields", Toast.LENGTH_SHORT).show();
         }else{
-            createAccount(email, pass,phone, username);
+            createAccount(email, pass);
         }
 
     }
