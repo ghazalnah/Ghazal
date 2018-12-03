@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Item implements Serializable{
     private String name;
     private String category;
-    private int image;
+    private int expenses;
 
 
 
@@ -13,7 +13,7 @@ public class Item implements Serializable{
 
         this.name = name;
         this.category = category;
-        this.image = image;
+        this.expenses = expenses;
     }
 
     public String getName() {
@@ -24,8 +24,8 @@ public class Item implements Serializable{
         return category;
     }
 
-    public int getImage() {
-        return image;
+    public int getExpenses() {
+        return expenses;
     }
 
     public void setName(String name) {
@@ -37,7 +37,7 @@ public class Item implements Serializable{
     }
 
     public void setPrice(int price) {
-        this.image = image;
+        this.expenses = expenses;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Item implements Serializable{
         return "Item{" +
                 "name='" + name + '\'' +
                 ", category='" + category + '\'' +
-                ", price=" + image +
+                ", price=" + expenses +
                 '}';
     }
 }

@@ -59,8 +59,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUp.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "Authentication failed:"+task.getException(),
+                                    Toast.LENGTH_LONG).show();
                             //updateUI(null);
                         }
 

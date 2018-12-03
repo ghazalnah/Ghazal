@@ -39,8 +39,8 @@
         android:layout_height="71dp" />
 
     <Button
-        android:id="@+id/btDone"
+        android:id="@+id/btAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Add" />
 </LinearLayout>
