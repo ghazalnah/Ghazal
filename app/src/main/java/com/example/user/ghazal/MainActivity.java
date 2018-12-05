@@ -1,7 +1,9 @@
 package com.example.user.ghazal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener {
     private static final String TAG = "FIREBASE";
     EditText username,password;
     Button logIn,signUp;
@@ -96,4 +98,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.about){
+
+                Intent i = new Intent(this, AboutActivity.class);
+                startActivity(i);
+            }
+        else{
+
+        }
+        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        if(which==dialog.BUTTON_POSITIVE){
+            super.onBackPressed();
+            dialog.cancel();
+        }
+        if(which==dialog.BUTTON_NEGATIVE){
+            dialog.cancel();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder =  new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", this);
+        builder.setNegativeButton("No", this);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+}
