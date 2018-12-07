@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etCategoty"
@@ -22,8 +21,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Category"
-        android:inputType="textPersonName"
-        android:text="Category" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etExpense"
@@ -31,8 +29,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Expense"
-        android:inputType="number"
-        android:text="Expense" />
+        android:inputType="number" />
 
     <Space
         android:layout_width="match_parent"

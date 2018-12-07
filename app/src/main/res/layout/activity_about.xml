@@ -19,7 +19,16 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="The application will include money management in:
+1.Travel budget
+2. Supplementary payments
+3. Tuition fees
+4. Rent
+5. Student's salary.
+The app will be personally managed and will include ringtone software for different payment dates.
+The application provides information and data for the student's financial situation at the beginning of each month and at the end of the year.
+Audience benefiting from the application: (application is intended) for the student.
+"
         android:textSize="18dp" />
 
 
