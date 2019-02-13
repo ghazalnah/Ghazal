@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signUp= (Button) findViewById(R.id.SignUp);
         signUp.setOnClickListener(this);
 
-        FirebaseApp.initializeApp(this);
+//        FirebaseApp.initializeApp(this);
 
         mAuth = FirebaseAuth.getInstance();
 

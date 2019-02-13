@@ -1,7 +1,7 @@
 package com.example.user.ghazal;
 
 import java.io.Serializable;
-
+//add comment
 public class Item implements Serializable{
     private String name;
     private String category;

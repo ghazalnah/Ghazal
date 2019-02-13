@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,8 +32,9 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     Button plus;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference myRef = database.getReference("Users");
-    FirebaseUser currentUser;
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+    final DatabaseReference myRef = database.getReference("Expenses");
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -46,13 +46,13 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         lvExpences = (ListView) findViewById(R.id.lvExpences);
         expenses = new ArrayList<>();
 
-        expenses.add(new Item("Test1", "Test2", R.drawable.home));
+     //   expenses.add(new Item("Test1", "Test2", R.drawable.home));
         adapter = new CustomAdapter(this, R.layout.custom_row,expenses );
 
         lvExpences.setAdapter(adapter);
         plus= (Button) findViewById(R.id.plusbtn);
         plus.setOnClickListener(this);
-
+        //myRef.child(currentUser.getUid()).setValue()
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
