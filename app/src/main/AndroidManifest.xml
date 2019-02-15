@@ -24,7 +24,8 @@
         <activity android:name=".Camera" />
         <activity android:name=".FireActivity" />
         <activity android:name=".SharedActivity" />
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".EditItem"></activity>
     </application>
 
 </manifest>

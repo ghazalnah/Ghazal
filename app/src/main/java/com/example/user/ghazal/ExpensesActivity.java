@@ -7,10 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,7 +35,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     FirebaseUser currentUser = mAuth.getCurrentUser();
-    final DatabaseReference myRef = database.getReference("Expenses");
+    final DatabaseReference myRef = database.getReference("Expenses/"+currentUser.getUid());
 
 
     @SuppressLint("WrongViewCast")
@@ -45,46 +47,47 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
         lvExpences = (ListView) findViewById(R.id.lvExpences);
         expenses = new ArrayList<>();
-
+        expenses.add(new Item("expenseName", "expenseCategory",  5));
      //   expenses.add(new Item("Test1", "Test2", R.drawable.home));
         adapter = new CustomAdapter(this, R.layout.custom_row,expenses );
 
         lvExpences.setAdapter(adapter);
         plus= (Button) findViewById(R.id.plusbtn);
         plus.setOnClickListener(this);
-        //myRef.child(currentUser.getUid()).setValue()
-        myRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
+        /*
+                  Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
                 String name = map.get("name");
                 int expences = Integer.parseInt(map.get("expences"));
                 String category = map.get("category");
                 expenses.add(new Item(name, category, expences));
                 adapter.notifyDataSetChanged();
-            }
+         */
+       myRef.addChildEventListener(new ChildEventListener() {
+           @Override
+           public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+               Toast.makeText(getApplicationContext(), "inside listener", Toast.LENGTH_LONG).show();
+           }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+           @Override
+           public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-            }
+           }
 
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+           @Override
+           public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-            }
+           }
 
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+           @Override
+           public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-            }
+           }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
-
+           }
+       });
 
     }
 
@@ -104,5 +107,9 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
         Intent i = new Intent(this, NewExpenseActivity.class);
         startActivity(i);
+
     }
+    
+
+
 }
