@@ -38,8 +38,13 @@ public class CustomAdapter extends ArrayAdapter<Item> {
 
 
             ImageView imageView=v.findViewById(R.id.imageView);
-            //imageView.setImageResource(p.getImage());
+            imageView.setImageResource(p.getImage());
         //}
         return v;
+    }
+    @Override
+    public boolean isEnabled(int position)
+    {
+        return true;
     }
 }

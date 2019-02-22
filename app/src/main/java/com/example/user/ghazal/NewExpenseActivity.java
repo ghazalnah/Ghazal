@@ -46,6 +46,15 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
         int expenses1 = Integer.parseInt(expenses.getText().toString());
         Intent i = new Intent(this, ExpensesActivity.class);
         Item item = new Item(name1, category1, expenses1);
+        if(category1.equals("Travel")){
+            item.setImage(R.drawable.car);
+        }else if (category1.equals("Home")){
+            item.setImage(R.drawable.home);
+        }else if (category1.equals("university")){
+            item.setImage(R.drawable.uni);
+        }else if (category1.equals("Work")){
+            item.setImage(R.drawable.work);
+        }
         myRef.child(currentUser.getUid()).push().setValue(item);
 
         startActivity(i);

@@ -1,15 +1,13 @@
 package com.example.user.ghazal;
 
-import android.annotation.SuppressLint;
+
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,23 +21,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Map;
 
-public class ExpensesActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener{
+public class ExpensesActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener, AdapterView.OnItemLongClickListener{
 
     ListView lvExpences;
     ArrayList<Item> expenses;
     CustomAdapter adapter;
 
     Button plus;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    final FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    FirebaseUser currentUser = mAuth.getCurrentUser();
-    final DatabaseReference myRef = database.getReference("Expenses/"+currentUser.getUid());
+    final DatabaseReference myRef = database.getReference("Expences");
 
-
-    @SuppressLint("WrongViewCast")
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenses);
@@ -47,58 +43,53 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
         lvExpences = (ListView) findViewById(R.id.lvExpences);
         expenses = new ArrayList<>();
-        expenses.add(new Item("expenseName", "expenseCategory",  5));
-     //   expenses.add(new Item("Test1", "Test2", R.drawable.home));
+   //     expenses.add(new Item("aaa","bbbb",55));
         adapter = new CustomAdapter(this, R.layout.custom_row,expenses );
 
         lvExpences.setAdapter(adapter);
+        lvExpences.setOnItemClickListener(this);
+        lvExpences.setOnItemLongClickListener(this);
         plus= (Button) findViewById(R.id.plusbtn);
         plus.setOnClickListener(this);
-        /*
-                  Map<String, String> map = (Map<String, String>) dataSnapshot.getValue();
-                String name = map.get("name");
-                int expences = Integer.parseInt(map.get("expences"));
-                String category = map.get("category");
-                expenses.add(new Item(name, category, expences));
+
+
+        myRef.child(currentUser.getUid()).addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String key = dataSnapshot.getKey();
+                Item item =  dataSnapshot.getValue(Item.class);
+                item.setKey(key);
+                expenses.add(item);
                 adapter.notifyDataSetChanged();
-         */
-       myRef.addChildEventListener(new ChildEventListener() {
-           @Override
-           public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-               Toast.makeText(getApplicationContext(), "inside listener", Toast.LENGTH_LONG).show();
-           }
+            }
 
-           @Override
-           public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                adapter.notifyDataSetChanged();
+            }
 
-           }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                adapter.notifyDataSetChanged();
 
-           @Override
-           public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
 
-           }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                adapter.notifyDataSetChanged();
+            }
 
-           @Override
-           public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-           }
-
-           @Override
-           public void onCancelled(DatabaseError databaseError) {
-
-           }
-       });
-
+            }
+        });
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        currentUser = mAuth.getCurrentUser();
     }
 
     @Override
@@ -109,7 +100,26 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         startActivity(i);
 
     }
-    
 
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+        AlertDialog.Builder builder =  new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to delete?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                myRef.child(currentUser.getUid()).child(expenses.get(position).getKey()).setValue(null);
+                expenses.remove(expenses.get(position));
+            }
+        });
+        builder.setNegativeButton("No", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        return false;
+    }
 
 }
