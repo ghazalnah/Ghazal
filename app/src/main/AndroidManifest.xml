@@ -25,7 +25,12 @@
         <activity android:name=".FireActivity" />
         <activity android:name=".SharedActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".EditItem"></activity>
+        <activity android:name=".EditItem" />
+
+        <service
+            android:name=".MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
+        Intent i = new Intent(this,MusicService.class);
+        startService(i);
+
     }
 
 
