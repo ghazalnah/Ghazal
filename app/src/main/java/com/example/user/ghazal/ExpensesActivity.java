@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +28,9 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     ListView lvExpences;
     ArrayList<Item> expenses;
     CustomAdapter adapter;
+
+    double income =0.0, outcome = 0.0;
+    TextView tvIncome, tvOutcome;
 
     Button plus;
     final FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -52,6 +56,8 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         plus= (Button) findViewById(R.id.plusbtn);
         plus.setOnClickListener(this);
 
+        tvIncome = findViewById(R.id.tvIncome);
+        tvOutcome = findViewById(R.id.tvOutCome);
 
         myRef.child(currentUser.getUid()).addChildEventListener(new ChildEventListener() {
 
@@ -85,6 +91,16 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
             }
         });
+        for(int i = 0; i<expenses.size();i++){
+
+            if(expenses.get(i).getCategory().equals("Work"))
+                income += expenses.get(i).getExpenses();
+            else
+                outcome= expenses.get(i).getExpenses();
+        }
+        tvOutcome.setText("OutCome: "+outcome);
+        tvIncome.setText("In Come: "+income);
+
     }
 
     @Override

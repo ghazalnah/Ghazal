@@ -11,6 +11,7 @@ public class MusicService extends Service {
     private static boolean isRunning=false;
 
     public MusicService() {
+
     }
 
     @Override
@@ -22,7 +23,7 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer.create(getApplicationContext(),R.raw.littleidea);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.littleidea);
 
     }
 

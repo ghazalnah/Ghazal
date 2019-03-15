@@ -31,8 +31,8 @@ public class Camera extends AppCompatActivity implements View.OnClickListener{
     private static final int CAMERA_REQUEST = 0;
     private static final int SELECT_IMAGE = 0;
 
-    bitmap photo;
-    bitmap bitmap;
+    Bitmap photo;
+    Bitmap bitmap;
 
 
     Button btCamera;
@@ -41,7 +41,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener{
     ImageView imageView2;
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference myRef = database.getReference().child("")
+    final DatabaseReference myRef = database.getReference().child("");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,12 +118,6 @@ public class Camera extends AppCompatActivity implements View.OnClickListener{
         }
         return filePath;
     }
-
-
-
-}
-
-
 
 }
 

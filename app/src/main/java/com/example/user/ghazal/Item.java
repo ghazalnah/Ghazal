@@ -6,9 +6,8 @@ public class Item implements Serializable{
     private String name;
     private String category;
     private int expenses;
-    private String key;
     private int image;
-
+    private String key;
 
     public  Item(){
         super();
@@ -40,14 +39,6 @@ public class Item implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setExpenses(int price) {
-        this.expenses = expenses;
     }
 
     public int getImage() {

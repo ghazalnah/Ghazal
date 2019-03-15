@@ -8,7 +8,6 @@
     android:padding="16dp"
     tools:context=".ExpensesActivity">
 
-
     <Button
         android:id="@+id/plusbtn"
         android:layout_width="50dp"
@@ -18,7 +17,27 @@
     <ListView
         android:id="@+id/lvExpences"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="346dp">
+
+
     </ListView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Income: " />
+
+
+    <TextView
+        android:id="@+id/tvOutCome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OutCome" />
+    </LinearLayout>
 </LinearLayout>

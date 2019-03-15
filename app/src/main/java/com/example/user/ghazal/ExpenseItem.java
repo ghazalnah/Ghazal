@@ -1,4 +1,4 @@
-package com.example.user.ghazal;
+/*package com.example.user.ghazal;
 
 public class ExpenseItem {
     private String name;
@@ -38,3 +38,4 @@ public class ExpenseItem {
                 '}';
     }
 }
+*/
