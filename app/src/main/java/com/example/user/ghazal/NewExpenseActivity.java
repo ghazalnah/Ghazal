@@ -1,6 +1,8 @@
 package com.example.user.ghazal;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,7 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
 
     EditText name,category,expenses;
     Button add;
+    String categoryType;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -64,4 +67,36 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
         super.onStart();
         currentUser = mAuth.getCurrentUser();
     }
+    public void showCountryAlertDialogButtonClicked(View view) {
+
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose a country");
+
+        // add a radio button list
+        final String[] countries = {"Spain", "France", "Portugal", "Greece", "United States", "China", "Turkey", "Germany", "South Africa", "Thailand"};
+        int checkedItem = 1; // flag
+        builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //countryTV.setText(countries[which]);
+                categoryType = countries[which];
+
+            }
+        });
+
+        // add OK and Cancel buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked OK
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }
