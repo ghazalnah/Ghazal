@@ -38,7 +38,7 @@ public class MyIntentService extends IntentService {
         builder.setContentTitle("Payment");
         builder.setContentText("Remember to pay until ten days!");
         builder.setSmallIcon(R.drawable.ic_attach_money_black_24dp);
-        Intent notifyIntent = new Intent(this, MainActivity.class);
+        Intent notifyIntent = new Intent(this, ExpensesActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         //to be able to launch your activity from the notification
         builder.setContentIntent(pendingIntent);

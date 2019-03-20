@@ -1,6 +1,8 @@
 package com.example.user.ghazal;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 
 public class ExpensesActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener, AdapterView.OnItemLongClickListener{
 
+    private static final int NOTIFICATION_REMINDER_NIGHT = 3;
     ListView lvExpences;
     ArrayList<Item> expenses;
     CustomAdapter adapter;
@@ -47,7 +50,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
         lvExpences = (ListView) findViewById(R.id.lvExpences);
         expenses = new ArrayList<>();
-   //     expenses.add(new Item("aaa","bbbb",55));
+        //     expenses.add(new Item("aaa","bbbb",55));
         adapter = new CustomAdapter(this, R.layout.custom_row,expenses );
 
         lvExpences.setAdapter(adapter);
@@ -68,6 +71,15 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
                 item.setKey(key);
                 expenses.add(item);
                 adapter.notifyDataSetChanged();
+
+                if(item.getCategory().equals("Work"))
+                    income += item.getExpenses();
+                else
+                    outcome += item.getExpenses();
+
+                tvOutcome.setText("OutCome: "+outcome);
+                tvIncome.setText("InCome: "+income);
+
             }
 
             @Override
@@ -91,15 +103,13 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
             }
         });
-        for(int i = 0; i<expenses.size();i++){
 
-            if(expenses.get(i).getCategory().equals("Work"))
-                income += expenses.get(i).getExpenses();
-            else
-                outcome= expenses.get(i).getExpenses();
-        }
-        tvOutcome.setText("OutCome: "+outcome);
-        tvIncome.setText("In Come: "+income);
+        Intent notifyIntent = new Intent(this,MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast
+                (this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(this.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,  System.currentTimeMillis(),
+                1000 * 60 * 60 * 24, pendingIntent);
 
     }
 
@@ -112,14 +122,34 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     public void onClick(View v) {
 
 
-        Intent i = new Intent(this, NewExpenseActivity.class);
-        startActivity(i);
+        Intent intent = new Intent(this, NewExpenseActivity.class);
+        startActivity(intent);
+
+        for(int i = 0; i<expenses.size();i++){
+
+            if(expenses.get(i).getCategory().equals("Work"))
+                income += expenses.get(i).getExpenses();
+            else
+                outcome= expenses.get(i).getExpenses();
+        }
+        tvOutcome.setText("OutCome: "+outcome);
+        tvIncome.setText("In Come: "+income);
 
     }
 
-//button for select radio options
+    //button for select radio options
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+        if(expenses.get(position).getCategory().equals("Work")){
+            income -= expenses.get(position).getExpenses();
+            tvIncome.setText("Income: "+income);
+        }else{
+            outcome -= expenses.get(position).getExpenses();
+            tvOutcome.setText("Income: "+outcome);
+        }
+
+
+
         AlertDialog.Builder builder =  new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to delete?");
         builder.setCancelable(false);
@@ -134,6 +164,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         builder.setNegativeButton("No", null);
         AlertDialog dialog = builder.create();
         dialog.show();
+
 
         return false;
     }
