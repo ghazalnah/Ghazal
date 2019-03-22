@@ -57,14 +57,14 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
             int expenses1 = Integer.parseInt(expenses.getText().toString());
             Intent i = new Intent(this, ExpensesActivity.class);
             Item item = new Item(name1, category1, expenses1);
-            if (category1.equals("Travel")) {
-                item.setImage(R.drawable.car);
-            } else if (category1.equals("Home")) {
-                item.setImage(R.drawable.home);
-            } else if (category1.equals("university")) {
-                item.setImage(R.drawable.uni);
-            } else if (category1.equals("Work")) {
-                item.setImage(R.drawable.work);
+            if (category1.equals("Travel expenses")) {
+                item.setImage(R.drawable.airplane);
+            } else if (category1.equals("Home expenses")) {
+                item.setImage(R.drawable.homelast);
+            } else if (category1.equals("university expenses")) {
+                item.setImage(R.drawable.unilast);
+            } else if (category1.equals("Salary")) {
+                item.setImage(R.drawable.worklast);
             }
             myRef.child(currentUser.getUid()).push().setValue(item);
 
@@ -83,7 +83,7 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
         builder.setTitle("Choose a category");
 
         // add a radio button list
-        final String[] countries = {"Travel", "Work", "University","Home"};
+        final String[] countries = {"Travel expenses", "Salary", "University expenses","Home expenses"};
         int checkedItem = 1; // flag
         builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
             @Override

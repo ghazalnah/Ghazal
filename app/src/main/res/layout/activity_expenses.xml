@@ -28,17 +28,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvIncome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Income: " />
+        <TextView
+            android:id="@+id/tvIncome"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:drawableLeft="@drawable/ic_attach_money_black_24dp"
+            android:background="@drawable/rounded_et2"
+            android:text="Your Income is: " />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
 
 
     <TextView
         android:id="@+id/tvOutCome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OutCome" />
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_et2"
+        android:drawableLeft="@drawable/ic_money_off_black_24dp"
+        android:text="Your Outcome is: " />
     </LinearLayout>
 </LinearLayout>

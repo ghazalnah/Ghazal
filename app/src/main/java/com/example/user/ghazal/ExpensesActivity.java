@@ -72,10 +72,10 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
                 expenses.add(item);
                 adapter.notifyDataSetChanged();
 
-                if(item.getCategory().equals("Work"))
+                if(item.getCategory().equals("Salary"))
                     income += item.getExpenses();
                 else
-                    outcome += item.getExpenses();
+                    outcome -= item.getExpenses();
 
                 tvOutcome.setText("OutCome: "+outcome);
                 tvIncome.setText("InCome: "+income);
@@ -127,7 +127,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
         for(int i = 0; i<expenses.size();i++){
 
-            if(expenses.get(i).getCategory().equals("Work"))
+            if(expenses.get(i).getCategory().equals("Salary"))
                 income += expenses.get(i).getExpenses();
             else
                 outcome= expenses.get(i).getExpenses();
@@ -140,12 +140,12 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     //button for select radio options
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-        if(expenses.get(position).getCategory().equals("Work")){
-            income -= expenses.get(position).getExpenses();
+        if(expenses.get(position).getCategory().equals("Salary")){
+            income += expenses.get(position).getExpenses();
             tvIncome.setText("Income: "+income);
         }else{
-            outcome -= expenses.get(position).getExpenses();
-            tvOutcome.setText("Income: "+outcome);
+            outcome += expenses.get(position).getExpenses();
+            tvOutcome.setText("Outcome: "+outcome);
         }
 
 

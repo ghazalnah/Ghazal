@@ -23,10 +23,10 @@ public class ListActivity extends AppCompatActivity implements AdapterView.OnIte
 
         lvItems = (ListView) findViewById(R.id.LvCountries);
 
-        arrayList.add(new Item("Work","work", R.drawable.work));
-        arrayList.add(new Item("University Expenses", "university" , R.drawable.uni));
+        arrayList.add(new Item("Work","work", R.drawable.worklast));
+        arrayList.add(new Item("University Expenses", "university" , R.drawable.unilast));
         arrayList.add(new Item("Traveling", "traveling" ,R.drawable.car));
-        arrayList.add(new Item("Home Expenses","home", R.drawable.home));
+        arrayList.add(new Item("Home Expenses","home", R.drawable.homelast));
 
         adapter = new CustomAdapter(this, R.layout.custom_row, arrayList);
         lvItems.setAdapter(adapter);

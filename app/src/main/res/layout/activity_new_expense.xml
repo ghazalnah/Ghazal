@@ -5,34 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/marble">
     tools:context=".NewExpenseActivity">
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <EditText
         android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_et2"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
     <TextView
         android:id="@+id/tvCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Category"
-        android:textSize="24sp" />
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="Select a category"
+        android:textAlignment="center"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/btCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:background="@drawable/rounded_button"
         android:text="Category" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
     <EditText
         android:id="@+id/etExpense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:ems="10"
+        android:background="@drawable/rounded_et2"
         android:hint="Expense"
         android:inputType="number" />
 
@@ -42,7 +65,10 @@
 
     <Button
         android:id="@+id/btAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:background="@drawable/rounded_button"
         android:text="Add" />
 </LinearLayout>
