@@ -15,13 +15,18 @@
         android:hint="Name"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/etCategoty"
+    <TextView
+        android:id="@+id/tvCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Category"
-        android:inputType="textPersonName" />
+        android:text="Category"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category" />
 
     <EditText
         android:id="@+id/etExpense"

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +20,8 @@ import java.util.StringTokenizer;
 public class NewExpenseActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText name,category,expenses;
-    Button add;
+    TextView tvCategory;
+    Button add, btCategory;
     String categoryType;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -34,52 +36,59 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
 
 
         name =(EditText) findViewById(R.id.etName);
-        category =(EditText) findViewById(R.id.etCategoty);
         expenses =(EditText) findViewById(R.id.etExpense);
 
+        tvCategory = findViewById(R.id.tvCategory);
         add =(Button) findViewById(R.id.btAdd);
         add.setOnClickListener(this);
+
+        btCategory =(Button) findViewById(R.id.btCategory);
+        btCategory.setOnClickListener(this);
 
     }
 // category --> listview
     @Override
     public void onClick(View v) {
-        String name1 = name.getText().toString();
-        String category1 = category.getText().toString();
-        int expenses1 = Integer.parseInt(expenses.getText().toString());
-        Intent i = new Intent(this, ExpensesActivity.class);
-        Item item = new Item(name1, category1, expenses1);
-        if(category1.equals("Travel")){
-            item.setImage(R.drawable.car);
-        }else if (category1.equals("Home")){
-            item.setImage(R.drawable.home);
-        }else if (category1.equals("university")){
-            item.setImage(R.drawable.uni);
-        }else if (category1.equals("Work")){
-            item.setImage(R.drawable.work);
-        }
-        myRef.child(currentUser.getUid()).push().setValue(item);
+        if(btCategory == v){
+            showCategoryDialogButtonClicked(v);
+        }else {
+            String name1 = name.getText().toString();
+            String category1 = tvCategory.getText().toString();
+            int expenses1 = Integer.parseInt(expenses.getText().toString());
+            Intent i = new Intent(this, ExpensesActivity.class);
+            Item item = new Item(name1, category1, expenses1);
+            if (category1.equals("Travel")) {
+                item.setImage(R.drawable.car);
+            } else if (category1.equals("Home")) {
+                item.setImage(R.drawable.home);
+            } else if (category1.equals("university")) {
+                item.setImage(R.drawable.uni);
+            } else if (category1.equals("Work")) {
+                item.setImage(R.drawable.work);
+            }
+            myRef.child(currentUser.getUid()).push().setValue(item);
 
-        startActivity(i);
+            startActivity(i);
+        }
     }
     @Override
     public void onStart() {
         super.onStart();
         currentUser = mAuth.getCurrentUser();
     }
-    public void showCountryAlertDialogButtonClicked(View view) {
+    public void showCategoryDialogButtonClicked(View view) {
 
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose a country");
+        builder.setTitle("Choose a category");
 
         // add a radio button list
-        final String[] countries = {"Spain", "France", "Portugal", "Greece", "United States", "China", "Turkey", "Germany", "South Africa", "Thailand"};
+        final String[] countries = {"Travel", "Work", "University","Home"};
         int checkedItem = 1; // flag
         builder.setSingleChoiceItems(countries, checkedItem, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //countryTV.setText(countries[which]);
+                tvCategory.setText(countries[which]);
                 categoryType = countries[which];
 
             }
@@ -98,5 +107,4 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
 }

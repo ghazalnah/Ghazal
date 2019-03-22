@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/marble">
     tools:context=".ExpensesActivity">
 
     <Button
         android:id="@+id/plusbtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/plus" />
+        android:background="@drawable/oval" />
 
     <ListView
         android:id="@+id/lvExpences"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#000000">
+    android:background="@drawable/marble">
     <LinearLayout
         android:paddingTop="100dp"
         android:layout_width="match_parent"
@@ -14,15 +14,15 @@
         android:orientation="vertical">
 
         <EditText
-            android:textColor="#fff"
             android:id="@+id/username"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:background="@drawable/edittextstyle"
+            android:background="#80008080"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
             android:gravity="center"
             android:hint="Username"
-            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:textColor="#000000"
             android:textColorHint="#fff" />
 
         <EditText
@@ -32,12 +32,12 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="@drawable/edittextstyle"
+            android:background="#80008080"
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="#fff"
+            android:textColor="#000000"
             android:textColorHint="#fff" />
 
         <Button
@@ -45,10 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="50dp"
-            android:background="@drawable/buttonstyleselector"
+            android:background="@drawable/rounded_button"
             android:gravity="center"
             android:text="Log in"
-            android:textColor="#fff" />
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -61,8 +61,7 @@
         <Button
             android:id="@+id/SignUp"
             android:gravity="center"
-            android:textColor="#fff"
-            android:background="@drawable/buttonstyleselector"
+            android:background="@drawable/rounded_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="50dp"
