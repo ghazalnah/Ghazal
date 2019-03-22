@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:weightSum="10"
     android:background="@drawable/marble">
     tools:context=".ExpensesActivity">
 
@@ -13,13 +14,14 @@
         android:id="@+id/plusbtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_margin="16dp"
         android:background="@drawable/oval" />
+
 
     <ListView
         android:id="@+id/lvExpences"
         android:layout_width="match_parent"
-        android:layout_height="346dp">
-
+        android:layout_height="300dp">
 
     </ListView>
 
@@ -52,5 +54,8 @@
         android:background="@drawable/rounded_et2"
         android:drawableLeft="@drawable/ic_money_off_black_24dp"
         android:text="Your Outcome is: " />
+
+
+
     </LinearLayout>
 </LinearLayout>

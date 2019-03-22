@@ -29,14 +29,37 @@ The app will be personally managed and will include ringtone software for differ
 The application provides information and data for the student's financial situation at the beginning of each month and at the end of the year.
 Audience benefiting from the application: (application is intended) for the student.
 "
-        android:textSize="18dp" />
+        android:textSize="10dp" />
 
 
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back" />
+        android:text="Back"
+        android:textColor="@android:color/white" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        android:background="@drawable/rounded_et2"
+        android:textColor="@android:color/white" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:background="@drawable/rounded_et2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
 
 </LinearLayout>
