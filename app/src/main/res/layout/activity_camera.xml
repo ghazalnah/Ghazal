@@ -6,16 +6,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Camera">
+    <ImageView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <Button
+        android:id="@+id/btGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gallery" />
 
     <Button
         android:id="@+id/btCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="camera" />
+        android:text="Camera" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/buttonstyle" />
+        android:layout_height="20dp" />
+
+
 </LinearLayout>

@@ -5,61 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/marble"
     tools:context=".AboutActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="About" />
-
+        android:textSize="20dp"
+        android:textColor="#008080"
+        android:text="Before you start..." />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The application will include money management in:
-1.Travel budget
-2. Supplementary payments
-3. Tuition fees
-4. Rent
-5. Student's salary.
-The app will be personally managed and will include ringtone software for different payment dates.
-The application provides information and data for the student's financial situation at the beginning of each month and at the end of the year.
-Audience benefiting from the application: (application is intended) for the student.
-"
-        android:textSize="10dp" />
+        android:textColor="#008080"
+        android:text="
+If you are an academic student and you need financial management, this application is for you.
+Here, You can enter your expenses during the year..
+So that the application shows you your incomes and outcomes! And to notifys you whenever you have to pay
+You can also take pictures, listen to music and edit your informations."
+        android:textSize="18dp" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:textAlignment="center"
+        android:layout_gravity="center_vertical|center_horizontal"
         android:text="Back"
+        android:background="@drawable/rounded_button"
         android:textColor="@android:color/white" />
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <Button
         android:id="@+id/btnCamera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Open Camera"
+        android:layout_width="250dp"
+        android:textAlignment="center"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_height="30dp"
+        android:text="Take A Picture!"
         android:background="@drawable/rounded_et2"
         android:textColor="@android:color/white" />
-
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:background="@drawable/rounded_et2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
 
 
 </LinearLayout>

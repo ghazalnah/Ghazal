@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,11 +32,13 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     ListView lvExpences;
     ArrayList<Item> expenses;
     CustomAdapter adapter;
+    ImageButton plus,help;
+
 
     double income =0.0, outcome = 0.0;
     TextView tvIncome, tvOutcome;
 
-    Button plus;
+
     final FirebaseAuth mAuth = FirebaseAuth.getInstance();
     final FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -56,8 +59,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         lvExpences.setAdapter(adapter);
         lvExpences.setOnItemClickListener(this);
         lvExpences.setOnItemLongClickListener(this);
-        plus= (Button) findViewById(R.id.plusbtn);
-        plus.setOnClickListener(this);
+
 
         tvIncome = findViewById(R.id.tvIncome);
         tvOutcome = findViewById(R.id.tvOutCome);
@@ -75,7 +77,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
                 if(item.getCategory().equals("Salary"))
                     income += item.getExpenses();
                 else
-                    outcome -= item.getExpenses();
+                    outcome += item.getExpenses();
 
                 tvOutcome.setText("OutCome: "+outcome);
                 tvIncome.setText("InCome: "+income);
@@ -120,17 +122,30 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onClick(View v) {
+        plus = (ImageButton)findViewById(R.id.searchImageButton);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), NewExpenseActivity.class);
+                startActivity(i);
+            }
+        });
+        help=(ImageButton)findViewById(R.id.helpbutton);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), HelpActivity.class);
+                startActivity(i);
+            }
+        });
 
-
-        Intent intent = new Intent(this, NewExpenseActivity.class);
-        startActivity(intent);
 
         for(int i = 0; i<expenses.size();i++){
 
             if(expenses.get(i).getCategory().equals("Salary"))
                 income += expenses.get(i).getExpenses();
             else
-                outcome= expenses.get(i).getExpenses();
+                outcome += expenses.get(i).getExpenses();
         }
         tvOutcome.setText("OutCome: "+outcome);
         tvIncome.setText("In Come: "+income);

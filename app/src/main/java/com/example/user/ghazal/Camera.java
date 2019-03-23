@@ -50,7 +50,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener{
 
         btCamera=findViewById(R.id.btCamera);
         btCamera.setOnClickListener(this);
-        imageView2 = findViewById(R .id.imageView2);
+        imageView2 = findViewById(R .id.camera);
     }
 
     @Override

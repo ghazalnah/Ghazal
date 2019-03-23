@@ -61,10 +61,12 @@ public class NewExpenseActivity extends AppCompatActivity implements View.OnClic
                 item.setImage(R.drawable.airplane);
             } else if (category1.equals("Home expenses")) {
                 item.setImage(R.drawable.homelast);
-            } else if (category1.equals("university expenses")) {
+            }
+            else if (category1.equals("Salary")) {
+                item.setImage(R.drawable.homelast);
+            }
+            else if (category1.equals("University expenses")) {
                 item.setImage(R.drawable.unilast);
-            } else if (category1.equals("Salary")) {
-                item.setImage(R.drawable.worklast);
             }
             myRef.child(currentUser.getUid()).push().setValue(item);
 
