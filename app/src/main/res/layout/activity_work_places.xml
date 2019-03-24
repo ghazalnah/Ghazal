@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/marble"
-    tools:context=".HelpActivity">
+    android:orientation="vertical"
+    tools:context=".WorkPlaces">
 
 
     <Space
@@ -16,27 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:textColor="#008080"
-        android:text="Need Help Fot Your Financial Management?"/>
+        android:text="Ideas to work places"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <ImageButton
-        android:id="@+id/imagebtnyou"
+        android:id="@+id/imageshopping"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/ic_youtube_black_24dp" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
-
-    <ImageButton
-        android:id="@+id/imagebtnwork"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:srcCompat="@drawable/ic_workways_black_24dp" />
+        app:srcCompat="@drawable/ic_shopping_basket_black_24dp"/>
 
     <Space
         android:layout_width="match_parent"
@@ -44,14 +34,9 @@
 
 
     <ImageButton
-        android:id="@+id/imagebtnpeople"
+        android:id="@+id/imageeat"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/ic_peoplehelp_black_24dp" />
-
-
-
-
-
+        app:srcCompat="@drawable/ic_restaurant_black_24dp"/>
 
 </LinearLayout>

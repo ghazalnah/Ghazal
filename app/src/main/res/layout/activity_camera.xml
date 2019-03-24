@@ -4,24 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/marble"
     android:orientation="vertical"
     tools:context=".Camera">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
     <ImageView
         android:id="@+id/camera"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textAlignment="center"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:srcCompat="@drawable/ic_linked_camera_black_24dp" />
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="258dp"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        android:layout_height="100dp" />
 
     <Button
         android:id="@+id/btGallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_et2"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textAlignment="center"
         android:text="Gallery" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/btCamera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_et2"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textAlignment="center"
         android:text="Camera" />
 
     <Space

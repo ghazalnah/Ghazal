@@ -32,7 +32,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     ListView lvExpences;
     ArrayList<Item> expenses;
     CustomAdapter adapter;
-    ImageButton plus,help;
+    ImageButton searchImageButton,helpButton;
 
 
     double income =0.0, outcome = 0.0;
@@ -46,7 +46,14 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference myRef = database.getReference("Expences");
 
+
+
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expenses);
 
@@ -105,6 +112,24 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
             }
         });
+        searchImageButton = (ImageButton) findViewById(R.id.searchImageButton);
+        /*searchImageButton.setOnClickListener( this);*/
+        searchImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), NewExpenseActivity.class);
+                startActivity(i);
+            }
+        });
+        helpButton = (ImageButton) findViewById(R.id.helpbutton);
+        /*helpbutton.setOnClickListener( this);*/
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),HelpActivity.class);
+                startActivity(i);
+            }
+        });
 
         Intent notifyIntent = new Intent(this,MyReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
@@ -120,24 +145,9 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
+
     @Override
     public void onClick(View v) {
-        plus = (ImageButton)findViewById(R.id.searchImageButton);
-        plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), NewExpenseActivity.class);
-                startActivity(i);
-            }
-        });
-        help=(ImageButton)findViewById(R.id.helpbutton);
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), HelpActivity.class);
-                startActivity(i);
-            }
-        });
 
 
         for(int i = 0; i<expenses.size();i++){
