@@ -29,7 +29,7 @@ public class WorkPlaces extends AppCompatActivity {
         imageshopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=adidas+haifa&npsic=0&rflfq=1&rlha=0&rllag=32802641,35030085,2509&tbm=lcl&ved=2ahUKEwj4243p0ZvhAhW4wAIHHQWrDoEQjGp6BAgKECs&tbs=lrf:!2m1!1e3!3sIAE,lf:1,lf_ui:4&rldoc=1#rlfi=hd:;si:;mv:!1m2!1d32.8170588!2d35.07951!2m2!1d32.7882246!2d35.0039602;tbs:lrf:!2m1!1e3!3sIAE,lf:1,lf_ui:4")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?tbm=lcl&ei=B7mYXIfDK4PosAe7gZSYDA&q=adidas&oq=adidas&gs_l=psy-ab.3...5438.6257.0.6788.6.6.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..6.0.0....0.kRVhnsDosgM#rlfi=hd:;si:;mv:!1m2!1d32.8467401!2d35.095735999999995!2m2!1d32.7865445!2d35.0030417;tbs:lrf:!2m1!1e3!3sIAE,lf:1,lf_ui:4")));
             }
         });
 

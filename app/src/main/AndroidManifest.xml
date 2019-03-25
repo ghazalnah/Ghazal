@@ -21,7 +21,6 @@
         <activity android:name=".ListActivity" />
         <activity android:name=".NewExpenseActivity" />
         <activity android:name=".AlertDialogActivity" />
-        <activity android:name=".Camera" />
         <activity android:name=".FireActivity" />
         <activity android:name=".SharedActivity" />
         <activity android:name=".AboutActivity" />

@@ -30,6 +30,14 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
 
+        imagebtnwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), WorkPlaces.class);
+                startActivity(i);
+            }
+        });
+
 
         imagebtnpeople.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -23,6 +23,9 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
     Button btGallery, btTakePhot;
 
 
+    /*A method that does intent to the Camera Request(Camera) if we chose btTakePhot
+ or intent to Select Image(Gallery) if we chose btCamera  */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

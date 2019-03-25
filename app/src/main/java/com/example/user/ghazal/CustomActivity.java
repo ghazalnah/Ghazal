@@ -14,6 +14,8 @@ public class CustomActivity extends AppCompatActivity implements AdapterView.OnI
     ArrayList<Item> itemArrayList;
     CustomAdapter customAdapter;
 
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
